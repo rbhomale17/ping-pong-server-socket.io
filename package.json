@@ -1,0 +1,21 @@
+{
+  "name": "ping-pong-server-socket.io",
+  "version": "1.0.0",
+  "description": "Backend coding assignment from Prime Tech Solution.",
+  "main": "index.js",
+  "scripts": {
+    "test": "concurrently \"nodemon index.js\" \"nodemon client.js\""
+  },
+  "author": "Rushikesh Diliprao Bhomale",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "nodemon": "^3.0.2",
+    "socket.io": "^4.7.2",
+    "socket.io-client": "^4.7.2"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
