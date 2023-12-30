@@ -1,6 +1,6 @@
 const socketIOClient = require('socket.io-client'); // import socket.io-client module
 const socket = socketIOClient('http://localhost:3000/'); // creating connection with server here
-
+let pongInterval; // creating pong send interval declare here for scope
 //if socket is connected to server 
 socket.on('connect', () => {
     console.log('Connected to server from client side.');
@@ -13,7 +13,7 @@ socket.on('connect', () => {
 
     // interval created for sending pong within 5 sec to ensure client is active
     let delay = 4500; // 4.5 sec delay
-    setInterval(() => {
+    pongInterval = setInterval(() => {
         console.log('Sending PONG to server');
         socket.send("PONG"); // pong sending
     }, delay) // delay is of 4.5 sec
@@ -22,6 +22,7 @@ socket.on('connect', () => {
 // checking if client disconnected
 socket.on('disconnect', () => {
     console.log('Client Connection Closed');
+    clearInterval(pongInterval)
 });
 
 // handeling if error occured

@@ -15,7 +15,7 @@ var io = importedSocketIO(server);
 
 
 io.on('connection', (socket) => {
-    // console.log(socket.id); // printing socketID of new client;
+    console.log(socket.id); // printing socketID of new client;
     let clientID = socket.id; // assign unique socket ID as clientID;
     connectedClients[clientID] = socket; // storing client data or ID in connectedClients object;
 
