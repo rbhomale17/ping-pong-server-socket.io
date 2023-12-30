@@ -13,17 +13,16 @@ var connectedClients = {}; // object to store client ids and data;
 var server = http.createServer(app); // server created by http;
 var io = importedSocketIO(server);
 
-// 
-console.log('hiii');
+
 io.on('connection', (socket) => {
-    console.log(socket.id);
+    // console.log(socket.id); // printing socketID of new client;
     let clientID = socket.id; // assign unique socket ID as clientID;
     connectedClients[clientID] = socket; // storing client data or ID in connectedClients object;
 
     console.log(`Client is connected : ${clientID}`); // logging after client joined;
 
     // emiting ping message initially
-    socket.emit('PING');
+    // socket.emit('PING');
 
     // set ping interval to send / emit 'PING' after every 30 Seconds;
     let pingInterval = setInterval(() => {
